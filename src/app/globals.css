@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F7F6F3;
+  --foreground: #0E0E0E;
+  --muted: #D8D2CA;
+  --accent: #A99B8D;
+  --accent-dark: #1C1C1C;
+  --gold: #C6A86B;
+  --ink: #0E0E0E;
+  --surface: #FBFAF7;
+  --muted-foreground: #6E665E;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-gold: var(--gold);
+  --color-ink: var(--ink);
+  --color-surface: var(--surface);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+main,
+section,
+div,
+article,
+form,
+p,
+h1,
+h2,
+h3 {
+  min-width: 0;
+}
+
+p,
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.bg-white {
+  background-color: var(--surface);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.field {
+  min-height: 48px;
+  border-radius: 6px;
+  border: 1px solid rgb(14 14 14 / 0.12);
+  background: var(--surface);
+  padding: 0.75rem;
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgb(169 155 141 / 0.18);
 }
